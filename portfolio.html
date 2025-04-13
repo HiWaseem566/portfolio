@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waseem Ullah - Electrical Engineer</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #121212;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: #121212;
+            z-index: 1000;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #fff;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        main {
+            margin-top: 80px;
+        }
+        
+        /* Main Content Box Style */
+        .main-box {
+            background-color: #1a1a1a;
+            padding: 60px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin: 50px auto;
+            max-width: 900px;
+            transition: all 0.3s;
+        }
+        
+        .main-box:hover {
+            border-color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Home Section */
+        .home-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #333;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .profile-image:hover {
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+        
+        .home-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .home-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            border-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* About Me Section */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 0 0 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        .about-text ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            color: #aaa;
+        }
+        
+        .about-text li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Final Year Project Section */
+        .project-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .project-image {
+            flex: 0 0 300px;
+        }
+        
+        .project-image img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .project-text {
+            flex: 1;
+        }
+        
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: #fff;
+        }
+        
+        .experience-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .experience-date {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .experience-item p {
+            margin-bottom: 15px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .experience-item ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            color: #aaa;
+        }
+        
+        .experience-item li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: #fff;
+        }
+        
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .project-meta {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .project-card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        .contact-details-box {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #aaa;
+        }
+
+        .contact-detail a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-detail a:hover {
+            color: #fff;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #121212;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .send-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .send-btn:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 50px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #fff;
+        }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .main-box {
+                padding: 40px 30px;
+                margin: 30px auto;
+            }
+            
+            .home-content h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .about-content,
+            .project-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .about-image,
+            .project-image {
+                flex: 1;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .contact-details-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Waseem Ullah Logo" class="logo">
+            <h1>WASEEM ULLAH</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="main-box">
+                <div class="home-content">
+                    <img src="waseem.jpg" alt="Waseem Ullah" class="profile-image">
+                    <h1>Hello, my name is Waseem Ullah</h1>
+                    <p>I'm an Electrical Engineer from Pakistan, with a strong background in circuit design, microcontroller programming, and IoT systems. I'm passionate about building innovative solutions and using technology to solve real-world problems.</p>
+                    <a href="WASEEM-CV.pdf" download="Waseem_Ullah_CV.pdf" class="btn">Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>ABOUT ME</h2>
+            <div class="main-box">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="picture.jpg" alt="Waseem Ullah">
+                    </div>
+                    <div class="about-text">
+                        <p>I completed my Bachelor of Engineering in Electrical Engineering from Pak-Austria Fachhochschule: Institute of Applied Sciences and Technology, Haripur. Throughout my academic journey, I gained a strong foundation in both hardware and software domains.</p>
+                        <p>My coursework included Embedded Systems, Digital System Design, Integrated Circuit (IC) Design, Electronic Circuit Design, Electrical Machines, Electromagnetic Field Theory, Communication Systems, Digital Signal Processing, Linear Control Systems, Instrumentation and Measurements, Power Electronics and Drives, Computer Communication Networks, Object-Oriented Programming, Data Structures, and Algorithms.</p>
+                        <p>I am also a freelancer on Fiverr, where I offer technical services such as C++ programming, MATLAB/Simulink simulations, and embedded systems development. Working with clients from around the world has helped me strengthen my communication skills and deliver professional solutions to real-world engineering challenges.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>FINAL YEAR PROJECT</h2>
+            <div class="main-box">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h3>Machine Learning-Based Battery Health Assessment System</h3>
+                        <p>For my Final Year Project, I developed a machine learning-based system to assess the health of lead-acid batteries by analyzing current, voltage, and temperature data. This project enabled predictive maintenance by identifying battery degradation in real time.</p>
+                        <p>Developed a smart system to predict the State of Health (SOH) of lead-acid batteries using real-time sensor data and machine learning. The system used multiple sensors including:</p>
+                        <ul>
+                            <li>Current Sensor (ACS712) – to measure battery current</li>
+                            <li>Voltage Divider Circuit – to monitor voltage levels</li>
+                            <li>Temperature Sensor (LM35) – to detect temperature variations</li>
+                        </ul>
+                        <p>An ESP32 microcontroller was used for sensor data collection and wireless communication. The data was processed and sent to a trained machine learning model to analyze battery condition and predict degradation patterns.</p>
+                    </div>
+                    <div class="project-image">
+                        <img src="pi.jpg" alt="Final Year Project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>EXPERIENCE</h2>
+            
+            <div class="main-box">
+                <div class="job-content">
+                    <h3>MECHATRONIC ENGINEER - IENERGY PVT. LTD.</h3>
+                    <span class="experience-date">Current</span>
+                    <p>Working as a Mechatronic Engineer with a focus on PLC-based industrial automation.</p>
+                    <ul>
+                        <li>Programming and configuring PLCs for various automation tasks</li>
+                        <li>Integrating sensors and actuators for real-time control systems</li>
+                        <li>Troubleshooting and maintaining automation hardware</li>
+                        <li>Collaborating with electrical and mechanical teams to optimize system performance</li>
+                        <li>Assisting in the design and deployment of automated process control systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3>INTERN – STEPNEX PVT. LTD</h3>
+                    <span class="experience-date">2023</span>
+                    <p>Worked in the software testing and QA department.</p>
+                    <ul>
+                        <li>Conducted manual testing and data entry</li>
+                        <li>Documentation for test cases</li>
+                        <li>Collaborated with developers for feedback and quality improvements</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>INTERN – MALAKAND-III (DARGAI POWER HOUSE)</h3>
+                    <span class="experience-date">2022</span>
+                    <p>Gained hands-on experience in power generation and hydropower systems.</p>
+                    <ul>
+                        <li>Participated in monitoring and data analysis</li>
+                        <li>Turbine control and maintenance operations</li>
+                        <li>Worked at the 20 MW Malakand-III Hydropower Plant</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>INTERN – PLC GROUP OF COMPANIES</h3>
+                    <span class="experience-date">2021</span>
+                    <p>Engaged in PLC-based system preparation and testing.</p>
+                    <ul>
+                        <li>Unit preparation and sensor configuration</li>
+                        <li>Voltage connection tasks for PLC-based systems</li>
+                        <li>Testing and validation of automation units</li>
+                        <li>Imager installations</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>INTERN – NATIONAL INSTITUTE OF ELECTRONICS (NIE)</h3>
+                    <span class="experience-date">2020</span>
+                    <p>Worked in the Wireless Sensor Networks Lab.</p>
+                    <ul>
+                        <li>Used Arduino and ESP32 microcontrollers with different sensors</li>
+                        <li>Assisted in developing microcontroller-based audio playback system</li>
+                        <li>Practiced embedded system programming</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>LINE FOLLOWER ROBOTS</h3>
+                    <p class="project-meta">Embedded Systems | Arduino</p>
+                    <p>Created microcontroller-based robots capable of following lines using infrared sensors and PID control algorithms.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>AUDIO PLAYBACK DEVICE WITH ARDUINO</h3>
+                    <p class="project-meta">Embedded Systems | Audio</p>
+                    <p>Created a microcontroller-based audio player using Arduino and a sound amplifier. The system could play preloaded audio files and was used to test speaker output and circuit response.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>WIRELESS ENERGY TRANSFER</h3>
+                    <p class="project-meta">Power Systems | Inductive Coupling</p>
+                    <p>Implemented a wireless power transfer system based on inductive coupling. Focused on improving power transmission distance and efficiency while ensuring electrical safety.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>RADIO FREQUENCY RECEIVER</h3>
+                    <p class="project-meta">Communication Systems | RF</p>
+                    <p>Developed a basic RF receiver circuit capable of capturing short-range radio signals. This project involved working with analog components, frequency tuning, and antenna configuration for communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>GET IN TOUCH</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/engrwaseem566@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="send-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-details-box">
+                    <div class="contact-detail">
+                        <img src="location.png" alt="Location" class="contact-icon">
+                        <span>Dir Lower Timergara</span>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="email.jpg" alt="Email" class="contact-icon">
+                        <a href="mailto:engrwaseem566@gmail.com">engrwaseem566@gmail.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="phone.png" alt="Phone" class="contact-icon">
+                        <a href="tel:+923494429566">+923494429566</a>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="Linkdin.png" alt="LinkedIn" class="contact-icon">
+                        <a href="https://www.linkedin.com/in/engrwaseem566/" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="github.png" alt="GitHub" class="contact-icon">
+                        <a href="https://github.com/skills/github-pages" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Waseem Ullah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
